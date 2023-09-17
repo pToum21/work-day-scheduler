@@ -28,7 +28,7 @@ $(document).ready(function () {
       }
     });
   }
-  // This function saves data to the browser when the user clicks the save button and inputs information
+  // This function saves data to the browser when the user clicks the save button and inputs information into the text area
   function saveLocalData() {
     
     $('#hour-9').children('.description').val(localStorage.getItem('hour-9'));
