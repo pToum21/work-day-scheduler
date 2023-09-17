@@ -11,7 +11,7 @@ $(document).ready(function () {
   // and represent it by changing the color on the Scheduler
   function hourChecker(){
     $('.time-block').each(function(){
-      var hourIdEl = $(this).attr('id').split('hour-').join('');
+      var hourIdEl = parseInt($(this).attr('id').split('hour-').join(''));
       var dayJsHour = dayjs().format('H');
        if (hourIdEl > dayJsHour) {
         $(this).addClass('future');
