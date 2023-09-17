@@ -13,26 +13,22 @@ $(document).ready(function () {
     $('.time-block').each(function(){
       var hourIdEl = $(this).attr('id').split('hour-').join('');
       var dayJsHour = dayjs().format('H');
-      if (hourIdEl === dayJsHour){
-        $(this).addClass('present');
-        $(this).removeClass('past');
-        $(this).removeClass('future');
-      } else if (hourIdEl > dayJsHour) {
+       if (hourIdEl > dayJsHour) {
         $(this).addClass('future');
         $(this).removeClass('past');
         $(this).removeClass('present');
-      } else {
+      } else if (hourIdEl < dayJsHour){
         $(this).addClass('past');
         $(this).removeClass('present');
         $(this).removeClass('future');
+      } else {
+          $(this).addClass('present');
+          $(this).removeClass('past');
+          $(this).removeClass('future');
       }
     });
-    
-
   }
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
+  // This function saves data to the browser when the user clicks the save button and inputs information
   function saveLocalData() {
     
     $('#hour-9').children('.description').val(localStorage.getItem('hour-9'));
@@ -43,8 +39,7 @@ $(document).ready(function () {
     $('#hour-14').children('.description').val(localStorage.getItem('hour-14'));
     $('#hour-15').children('.description').val(localStorage.getItem('hour-15'));
     $('#hour-16').children('.description').val(localStorage.getItem('hour-16'));
-    $('#hour-17').children('.description').val(localStorage.getItem('hour-17')); 
-    
+    $('#hour-17').children('.description').val(localStorage.getItem('hour-17'));  
   }
   // this displays the current day and math
   $('#currentDay').text(dayjs().format('dddd, MMMM D'));
